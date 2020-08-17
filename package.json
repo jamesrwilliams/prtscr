@@ -1,16 +1,13 @@
 {
   "name": "prtscr",
   "version": "0.0.1",
-  "description": "Print screener",
+  "description": "A commandline URL screenshot utility",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
     "prtscr": "./app.js"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
   },
   "repository": {
     "type": "git",
