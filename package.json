@@ -1,6 +1,6 @@
 {
   "name": "prtscr",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Print screener",
   "main": "app.js",
   "scripts": {
@@ -8,6 +8,9 @@
   },
   "bin": {
     "prtscr": "./app.js"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "repository": {
     "type": "git",
