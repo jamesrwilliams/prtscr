@@ -1,5 +1,5 @@
 {
-  "name": "@jamesrwilliams/prtscr",
+  "name": "prtscr",
   "version": "0.0.1",
   "description": "Print screener",
   "main": "app.js",
