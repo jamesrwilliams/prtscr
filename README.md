@@ -1,4 +1,6 @@
-# prtscr
+# @jamesrwilliams/prtscr
+
+![npm](https://img.shields.io/npm/v/@jamesrwilliams/prtscr?style=flat-square)
 
 Commandline screenshot tool.
 
