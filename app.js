@@ -4,7 +4,7 @@ const { Command } = require('commander');
 const path = require('path');
 const fs = require('fs-extra');
 const puppeteer = require('puppeteer');
-const { getDateStamp, slugify } = require('./lib/lib');
+const { getDateStamp, slugify, genScreenshot } = require('./lib/lib');
 
 const program = new Command();
       program.version('0.0.1');
@@ -36,13 +36,18 @@ const program = new Command();
 
           console.log('Starting screenshot work...');
 
+          let promises = [];
+
           for( let i = 0; i < targets.length; i++) {
+
+            promises.push(genScreenshot());
+
             const page = await browser.newPage();
             await page.setViewport({ width: 1400, height: 1400 });
             await page.goto(targets[i], { waitUntil: 'networkidle2'});
             const pageTitle = await page.title();
-            const title = (pageTitle !== '' ? '-' + slugify(pageTitle) : '');
-            await page.screenshot({...defaults, path: `${outputPath}/${dateStamp}${title}.png`});
+            const title = (pageTitle !== '' ? '-' + slugify(targets[i]) : '');
+            await page.screenshot({...defaults, path: `${outputPath}/${dateStamp}-${title}.png`});
             console.log(`${i + 1}/${targets.length} completed. (${targets[i]})`);
           }
 
@@ -51,7 +56,6 @@ const program = new Command();
         });
 
 program.parse(process.argv);
-
 
 
 
